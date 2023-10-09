@@ -1,7 +1,7 @@
-import datos from "../model/model.js";
+import instructor from "../model/Instru.js";
 const Curso = async (req,res)=>{
     try{
-        const estudiantes = await datos.findAll();
+        const estudiantes = await instructor.findAll();
         res.json(estudiantes);
     }catch(error){
         res.json({message: error.message})
@@ -10,8 +10,8 @@ const Curso = async (req,res)=>{
 }
 const traer1 = async (req, res)=>{
     try{
-        const Estu = await datos.findAll({
-            where: {idCurso: req.params.id}
+        const Estu = await instructor.findAll({
+            where: {idInstructor: req.params.id}
         });
         res.json(Estu[0]);
     }catch(err){
@@ -22,7 +22,7 @@ const traer1 = async (req, res)=>{
 
 const crear=async(req,res)=>{
     try{
-        await datos.create(req.body)
+        await instructor.create(req.body)
         res.json({
             message:"creado rey"
         })
@@ -35,8 +35,8 @@ const crear=async(req,res)=>{
 
   const actualizar = async (req, res)=>{
     try{
-        await datos.update(req.body,{
-            where: {idCurso: req.params.id}
+        await instructor.update(req.body,{
+            where: {idInstructor: req.params.id}
         });
         res.json({"message":`actualizao el ${req.params.id}`});
     }catch(err){
@@ -49,8 +49,8 @@ const crear=async(req,res)=>{
 
   const eliminar = async (req, res)=>{
     try{
-        const Estu = await datos.destroy({
-            where: {idCurso: req.params.id}
+        const Estu = await instructor.destroy({
+            where: {idInstructor: req.params.id}
         });
         res.json({"message":`me he cargao el ${req.params.id}`});
     }catch(err){
