@@ -33,9 +33,9 @@ const crear=async(req,res)=>{
 
 const actualizar = async (req, res) => {
     try {
-      const { id } = req.params;
+      
       const updatedData = await datos.update(req.body, {
-        where: { id: id },
+        where: { idCurso: req.params.id },
       });
       
       if (updatedData[0] === 1) {
@@ -47,17 +47,6 @@ const actualizar = async (req, res) => {
       res.status(500).json({ message: error.message });
     }
   };
-
-// const eliminar = async (req, res) => {
-//     try {
-//       const { idCurso } = req.params;
-//       const deletedRows = await datos.destroy({
-//         where: { idCurso: id },
-//       });
-//     } catch (error) {
-//       res.status(500).json({ message: error.message });
-//     }
-//   };
 
 
   const eliminar = async (req, res)=>{
@@ -72,4 +61,4 @@ const actualizar = async (req, res) => {
 }
 
 
-export {Curso,traer1, crear,eliminar}
+export {Curso,traer1, crear,eliminar,actualizar}

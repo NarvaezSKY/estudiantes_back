@@ -7,6 +7,7 @@ const app=express()
 app.use(cors())
 app.use(express.json())
 
+
 app.listen(1000, ()=>{
     console.log('conectado en http://localhost:1000')
 })
