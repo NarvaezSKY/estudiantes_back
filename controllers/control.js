@@ -61,4 +61,4 @@ const actualizar = async (req, res) => {
 }
 
 
-export {Curso,traer1, crear,eliminar,actualizar}
+export {Curso,traer1, crear,eliminar}

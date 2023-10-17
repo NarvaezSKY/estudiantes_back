@@ -6,6 +6,7 @@ const router = express.Router()
 
 router.get('/', Curso)
 router.get('/:id', traer1)
+
 router.post('/', crear)
 router.delete('/:id', eliminar)
 router.put('/:id', actualizar)
